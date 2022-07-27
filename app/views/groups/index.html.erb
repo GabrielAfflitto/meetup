@@ -1,5 +1,10 @@
 <h1>All Groups</h1>
 
+<%= form_with url: import_users_path, method: :post do |form| %>
+  <%= form.file_field :file, accept: ".csv" %>
+  <%= form.button "Import" %>
+<% end %>
+
 <% @groups.each do |group| %>
   <h3><%= group.name %></h3>
   <% group.users.each do |user| %>

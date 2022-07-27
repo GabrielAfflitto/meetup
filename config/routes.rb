@@ -7,4 +7,11 @@ Rails.application.routes.draw do
 
   get '/groups', to: 'groups#index'
   get '/groups/:id', to: 'groups#show'
+
+  root to: redirect("/groups")
+  resources :users do
+    collection do
+      post :import
+    end
+  end
 end
