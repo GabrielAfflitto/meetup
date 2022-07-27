@@ -9,28 +9,28 @@ User.destroy_all
 Group.destroy_all
 UserGroup.destroy_all
 
-User.create!([
+users = User.create([
   {first_name: "Aaron", last_name: "Rogers"},
   {first_name: "Tom", last_name: "Brady"},
   {first_name: "Russell", last_name: "Wilson"},
   {first_name: "Trey", last_name: "Lance"}
   ])
 
-Group.create!([
+groups = Group.create([
   {name: "Passing"},
   {name: "Rushing"},
   {name: "Skating"},
   {name: "Golf"}
   ])
 
-UserGroup.create!([
-  {user_id: 1, group_id: 1, role: ["Organizer"]},
-  {user_id: 2, group_id: 1, role: ["Presenter"]},
-  {user_id: 3, group_id: 1, role: ["Participant"]},
-  {user_id: 4, group_id: 1, role: ["Participant"]},
-  {user_id: 1, group_id: 2, role: ["Presenter"]},
-  {user_id: 2, group_id: 2, role: ["Organizer"]},
-  {user_id: 3, group_id: 2, role: ["Participant"]},
-  {user_id: 4, group_id: 3, role: ["Organizer"]},
-  {user_id: 4, group_id: 4, role: ["Presenter"]}
+user_groups = UserGroup.create([
+  {user_id: users[0].id, group_id: groups[0].id, role: ["Organizer"]},
+  {user_id: users[1].id, group_id: groups[0].id, role: ["Presenter"]},
+  {user_id: users[2].id, group_id: groups[0].id, role: ["Participant"]},
+  {user_id: users[3].id, group_id: groups[0].id, role: ["Participant"]},
+  {user_id: users[0].id, group_id: groups[1].id, role: ["Presenter"]},
+  {user_id: users[1].id, group_id: groups[1].id, role: ["Organizer"]},
+  {user_id: users[2].id, group_id: groups[1].id, role: ["Participant"]},
+  {user_id: users[3].id, group_id: groups[2].id, role: ["Organizer"]},
+  {user_id: users[3].id, group_id: groups[3].id, role: ["Presenter"]}
   ])
