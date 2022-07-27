@@ -2,4 +2,10 @@
 
 <% @groups.each do |group| %>
   <h3><%= group.name %></h3>
+  <% group.users.each do |user| %>
+    <% user.user_groups.each do |user_group| %>
+      <% next unless user_group.group_id == group.id && user_group.role == ["Organizer"] %>
+      <p>Organizer: <%= user.first_name %> <%= user.last_name %></p>
+    <% end %>
+  <% end %>
 <% end %>
